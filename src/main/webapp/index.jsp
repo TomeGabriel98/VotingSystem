@@ -1,3 +1,10 @@
+<%@page contentType="text/html" pageEnconding="UTF-8"%>
+
+<%
+	String contexto = request.getContextPath();
+	if(!contexto.equals("")) contexto += "/";
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,16 +15,18 @@
 	<div class="container">
 		<h1 class=page-header>Sistema Eleitoral</h1>
 	</div>
-	<form action="Login" method="post">
+	<form class="baseForm" action="Autentica" method="post">
 		<div class="container">
-			<h2> Login: </h2>
+			<label class="formLabel"> Login:
+				<input type="text" name="id" required="true" maxlength="12">
+			</label>
 		</div>
-		<input type="text" name="id" required="true" maxlength="12">
 		<div class="container">
-			<h2> Senha: </h2>
+			<label class="formLabel"> Senha:
+				<input type="password" name="senha" required="true">
+			</label>
 		</div>
-		<input type="password" name="senha" required="true">
-		<button type="submit"> Logar </button>
+		<button type="submit" value="Logar"></button>
 	</form>
 </body>
 </html>
