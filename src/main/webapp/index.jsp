@@ -1,4 +1,5 @@
-<%@page contentType="text/html" pageEnconding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 
 <%
 	String contexto = request.getContextPath();
@@ -26,7 +27,7 @@
 				<input type="password" name="senha" required="true">
 			</label>
 		</div>
-		<button type="submit" value="Logar"></button>
+		<button type="submit" class="submitButton"> Logar </button>
 	</form>
 </body>
 </html>

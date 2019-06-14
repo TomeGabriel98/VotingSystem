@@ -21,21 +21,21 @@ public class Autenticador extends HttpServlet {
 		String senha = req.getParameter("senha");
 		ServletContext sc = req.getServletContext();
 		
-		//EleitorDAOImpl eleitor = new EleitorDAOImpl();
-		//Eleitor candidato = eleitor.findByTitle(titulo);
+		EleitorDAOImpl eleitor = new EleitorDAOImpl();
+		Eleitor uBD = eleitor.findByTitle(titulo);
 		
-		if(titulo.equals("eleitor") && senha.equals("eleitor")) {
+		if(uBD != null && uBD.getSenha().equals(senha)) {
 			try {
 				req.setAttribute("titulo", titulo);
 				req.setAttribute("senha", senha);
 				
-				sc.getRequestDispatcher("/webapp/mesario.html").forward(req, res);
+				sc.getRequestDispatcher("/menu.jsp").forward(req, res);
 			} catch(Exception e) {}
 		}
 		else {
 			try {
 				req.setAttribute("Falha na autenticação", true);
-				sc.getRequestDispatcher("/webapp/index.jsp").forward(req, res);
+				sc.getRequestDispatcher("/index.jsp").forward(req, res);
 			} catch(Exception e) {}
 		}
 		

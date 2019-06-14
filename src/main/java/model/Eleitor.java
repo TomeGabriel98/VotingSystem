@@ -30,6 +30,15 @@ public class Eleitor {
 	@ManyToOne
 	private Municipio municipio;
 	
+	@Column(name = "zona")
+	private String zona;
+	
+	@Column(name = "secao")
+	private String secao;
+	
+	@Column(name = "categoria")
+	private String categoria;
+	
 	public Eleitor() {}
 
 	public long getIdEleitor() {
@@ -78,6 +87,30 @@ public class Eleitor {
 
 	public void setMunicipio(Municipio municipio) {
 		this.municipio = municipio;
+	}
+
+	public String getZona() {
+		return zona;
+	}
+
+	public void setZona(String zona) {
+		this.zona = zona;
+	}
+
+	public String getSecao() {
+		return secao;
+	}
+
+	public void setSecao(String secao) {
+		this.secao = secao;
+	}
+
+	public String getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
 	}
 	
 	

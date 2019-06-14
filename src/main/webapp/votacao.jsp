@@ -1,3 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+
+<%
+	String contexto = request.getContextPath();
+	if(!contexto.equals("")) contexto += "/";
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
