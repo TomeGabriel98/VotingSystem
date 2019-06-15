@@ -12,8 +12,6 @@ import javax.persistence.TemporalType;
 @Entity(name = "eleitor")
 public class Eleitor {
 	@Id
-	private long idEleitor;
-	
 	@Column(name = "titulo")
 	private String titulo;
 	
@@ -26,9 +24,9 @@ public class Eleitor {
 	@Column(name = "nascimento")
 	private String nasc;
 	
-	@JoinColumn(name = "municipio", referencedColumnName = "idMunicipio")
+	/*@JoinColumn(name = "municipio", referencedColumnName = "idMunicipio")
 	@ManyToOne
-	private Municipio municipio;
+	private Municipio municipio;*/
 	
 	@Column(name = "zona")
 	private String zona;
@@ -39,15 +37,18 @@ public class Eleitor {
 	@Column(name = "categoria")
 	private String categoria;
 	
+	@Column(name = "libera")
+	private String libera;
+	
 	public Eleitor() {}
 
-	public long getIdEleitor() {
+	/*public long getIdEleitor() {
 		return idEleitor;
 	}
 
 	public void setIdEleitor(long idEleitor) {
 		this.idEleitor = idEleitor;
-	}
+	}*/
 
 	public String getTitulo() {
 		return titulo;
@@ -81,13 +82,13 @@ public class Eleitor {
 		this.nasc = nasc;
 	}
 
-	public Municipio getMunicipio() {
+	/*public Municipio getMunicipio() {
 		return municipio;
 	}
 
 	public void setMunicipio(Municipio municipio) {
 		this.municipio = municipio;
-	}
+	}*/
 
 	public String getZona() {
 		return zona;

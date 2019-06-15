@@ -26,8 +26,9 @@ public class Autenticador extends HttpServlet {
 		
 		if(uBD != null && uBD.getSenha().equals(senha)) {
 			try {
-				req.setAttribute("titulo", titulo);
-				req.setAttribute("senha", senha);
+				req.getSession().setAttribute("titulo", titulo);
+				req.getSession().setAttribute("senha", senha);
+				req.getSession().setAttribute("eleitorLogado", uBD);
 				
 				sc.getRequestDispatcher("/menu.jsp").forward(req, res);
 			} catch(Exception e) {}

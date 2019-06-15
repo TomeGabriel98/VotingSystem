@@ -19,7 +19,7 @@ dependencies {
 	providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
 	providedCompile 'org.glassfish:javax.json:1.0.2'
 	implementation 'org.hibernate:hibernate-core:5.3.6.Final'
-	implementation 'mysql:mysql-connector-java:5.1.6'
+	implementation 'mysql:mysql-connector-java:8.0.16'
 }
 
 // In this section you declare where to find the dependencies of your project

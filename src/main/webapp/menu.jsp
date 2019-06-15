@@ -15,12 +15,11 @@
 </head>
 <body>
 	<button id="sair"> Sair </button>
-	<div>
-		<% Eleitor e = (Eleitor)request.getAttribute("eleitorLogado"); %>
-		
-		<p> Olá <%= e.getCategoria().toLowerCase() + " " + e.getNome() %></p>
-		
-		<nav id="menu">
+	<% Eleitor e = (Eleitor)request.getSession().getAttribute("eleitorLogado"); %>
+	
+	<p> Olá <%= e.getCategoria().toLowerCase() + " " + e.getNome() %></p>
+	
+	<nav id="menu">
 			<ul>
 				<li><a href="/Votar"> Votar </a> </li>
 				<%if(e.getCategoria().toLowerCase().equals("mesario")){ %>
@@ -31,6 +30,7 @@
 					<li><a href="/Relatorio"> Relatório </a></li>
 				<%} %>
 			</ul>
-		</nav>
-	</div> 
+	</nav>
+	
+</body>
 </html>

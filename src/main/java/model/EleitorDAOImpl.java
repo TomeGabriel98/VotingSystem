@@ -15,6 +15,8 @@ public class EleitorDAOImpl implements EleitorDAO {
 			
 			return eleitor;
 		} catch(Exception e) {
+			System.out.println(e);
+			
 			return null;
 		}
 	}

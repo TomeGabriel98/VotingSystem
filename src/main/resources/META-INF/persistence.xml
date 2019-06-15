@@ -16,9 +16,9 @@
 		<class>model.UF</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/eleicao" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/eleicao?serverTimezone=UTC" />
 			<property name="javax.persistence.jdbc.user" value="root" />
-			<property name="javax.persistence.jdbc.password" value="SenhaForte.123" /><!-- 
+			<property name="javax.persistence.jdbc.password" value="021426" /><!-- 
 				SenhaForte.123 -->
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
 			<property name="hibernate.show_sql" value="true" />
