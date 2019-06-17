@@ -1,28 +1,35 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-
-<%
-	String contexto = request.getContextPath();
-	if(!contexto.equals("")) contexto += "/";
+<%@page import="model.Eleitor"%>
+<%@page import="model.Candidato"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<% 
+    String contexto = request.getContextPath();
+    if (!contexto.equals(""))
+        contexto = contexto + "/";
 %>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Sistema de Votação</title>
+<title>Sistema de VotaÃ§Ã£o</title>
 </head>
 <body>
-	<div>
-		<h1> Votação </h1>
-	</div>
-	<div>
-		<h2> Digite o número do candidato: </h2>
-	</div>
+	<button id="voltar" onclick="window.location.href='javascript:window.history.go(-1)'">Voltar</button>
+	<% Eleitor e = (Eleitor)request.getSession().getAttribute("eleitorLogado"); %>
 	<form action="Votar" method="post">
-		<input type="text" name="candidato" required="true" maxlength="2" size="10">
-		<button type="submit"> Votar </button>
-		<button id="voltar" onclick="window.location.href='javascript:window.history.go(-1)'"> Cancelar </button>
+		<% if(e.isLibera()){ %>
+			<div>
+				<h1> VotaÃ§Ã£o </h1>
+			</div>
+			<div>
+				<label class="formLabel"> Digite o nÃºmero do candidato:
+					<input type="text" name="candidato" required="true" maxlength="2" size="10">
+				</label>
+				<button type="submit"> Votar </button>
+			</div>
+		<% }else {%>
+			<p> VocÃª nÃ£o pode votar agora </p>
+		<% } %>
 	</form>
 	<img alt="Aqui vai ficar a foto do miliante" src="">
 </body>

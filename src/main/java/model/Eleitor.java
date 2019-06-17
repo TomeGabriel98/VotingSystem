@@ -38,8 +38,8 @@ public class Eleitor {
 	private String categoria;
 	
 	@Column(name = "libera")
-	private String libera;
-	
+	private boolean libera;
+
 	public Eleitor() {}
 
 	/*public long getIdEleitor() {
@@ -114,6 +114,13 @@ public class Eleitor {
 		this.categoria = categoria;
 	}
 	
+	public boolean isLibera() {
+		return libera;
+	}
+
+	public void setLibera(boolean libera) {
+		this.libera = libera;
+	}
 	
 	
 	

@@ -1,14 +1,16 @@
 package model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 
+@Entity(name="voto")
 public class Voto {
 	@Id
 	private long idVoto;
 	
 	@Column(name = "voto")
-	private String voto;
+	private Integer voto;
 
 	public long getIdVoto() {
 		return idVoto;
@@ -18,13 +20,15 @@ public class Voto {
 		this.idVoto = idVoto;
 	}
 
-	public String getVoto() {
+	public int getVoto() {
 		return voto;
 	}
 
-	public void setVoto(String voto) {
+	public void setVoto(int voto) {
 		this.voto = voto;
 	}
+
+	
 	
 	
 }

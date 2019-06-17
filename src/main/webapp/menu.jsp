@@ -21,13 +21,13 @@
 	
 	<nav id="menu">
 			<ul>
-				<li><a href="/Votar"> Votar </a> </li>
+				<li><a href="/VotingSystem/Votar"> Votar </a> </li>
 				<%if(e.getCategoria().toLowerCase().equals("mesario")){ %>
-					<li><a href="/LiberaVotacao"> Liberar Votação </a></li>
+					<li><a href="/VotingSystem/LiberaVotacao"> Liberar Votação </a></li>
 				<%} %>
 				<%if( e.getCategoria().toLowerCase().equals("chefe")){ %>
-					<li><a href="/LiberaVotacao"> Liberar Votação </a></li>
-					<li><a href="/Relatorio"> Relatório </a></li>
+					<li><a href="/VotingSystem/LiberaVotacao"> Liberar Votação </a></li>
+					<li><a href="/VotingSystem/Relatorio"> Relatório </a></li>
 				<%} %>
 			</ul>
 	</nav>

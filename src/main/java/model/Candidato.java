@@ -7,21 +7,12 @@ import javax.persistence.Id;
 @Entity(name = "candidato")
 public class Candidato {
 	@Id
-	private long idCandidato;
+	@Column(name = "numero", nullable = false)
+	private int numero;
 	
 	@Column(name = "nome", nullable = false)
 	private String nome;
-	
-	@Column(name = "partido", nullable = false)
-	private String partido;
 
-	public long getIdCandidato() {
-		return idCandidato;
-	}
-
-	public void setIdCandidato(long idCandidato) {
-		this.idCandidato = idCandidato;
-	}
 
 	public String getNome() {
 		return nome;
@@ -31,13 +22,15 @@ public class Candidato {
 		this.nome = nome;
 	}
 
-	public String getPartido() {
-		return partido;
+	public int getNumero() {
+		return numero;
 	}
 
-	public void setPartido(String partido) {
-		this.partido = partido;
+	public void setNumero(int numero) {
+		this.numero = numero;
 	}
+
+	
 	
 	
 }
