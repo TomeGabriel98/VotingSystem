@@ -1,5 +1,7 @@
 package controller;
 
+import java.io.PrintWriter;
+
 import javax.servlet.ServletContext;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,6 +15,7 @@ import model.EleitorDAOImpl;
 public class Autenticador extends HttpServlet {	
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse res) {
+		String mensagem = null;
 		try {
 			req.setCharacterEncoding("UTF-8");
 		} catch(Exception e) {}
@@ -36,6 +39,9 @@ public class Autenticador extends HttpServlet {
 		else {
 			try {
 				req.setAttribute("Falha na autenticação", true);
+				
+				mensagem = "Usuário Inválido";
+				req.getSession().setAttribute("mensagem", mensagem);
 				sc.getRequestDispatcher("/index.jsp").forward(req, res);
 			} catch(Exception e) {}
 		}

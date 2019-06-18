@@ -11,6 +11,7 @@ import model.EleitorDAOImpl;
 
 @WebServlet(name="LiberaVotacao", urlPatterns= {"/LiberaVotacao"})
 public class LiberarVoto extends HttpServlet {
+	
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse res) {
 		try {
@@ -35,6 +36,9 @@ public class LiberarVoto extends HttpServlet {
 	
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse res) {
+		String validou = null;
+		String nulo = null;
+		
 		try {
 			req.setCharacterEncoding("UTF-8");
 		} catch(Exception e) {
@@ -49,7 +53,12 @@ public class LiberarVoto extends HttpServlet {
 			eleitor.liberaVoto(titulo);
 			Eleitor uBD = eleitor.findByTitle(titulo);
 			if(uBD != null)	req.getSession().setAttribute("eleitor", uBD);
+			else nulo = "true";
+			req.getSession().setAttribute("nulo", nulo);
 			//System.out.println(req.getAttribute("eleitor"));
+			
+			validou = "true";
+			req.getSession().setAttribute("validou", validou);
 			sc.getRequestDispatcher("/liberar.jsp").forward(req, res);
 		} catch(Exception e) {
 			

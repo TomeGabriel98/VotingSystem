@@ -11,8 +11,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Sistema de Votação</title>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 </head>
 <body>
+	<% String mensagem = (String)request.getSession().getAttribute("mensagem"); %>
 	<div class="container">
 		<h1 class=page-header>Sistema Eleitoral</h1>
 	</div>
@@ -29,5 +32,9 @@
 		</div>
 		<button type="submit" class="submitButton"> Logar </button>
 	</form>
+	<% if(mensagem != null){ %>
+		<p> <%= mensagem %> </p>
+	<%} %>
+	
 </body>
 </html>

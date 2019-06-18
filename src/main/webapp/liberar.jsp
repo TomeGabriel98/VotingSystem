@@ -14,6 +14,9 @@
 <title>Sistema de Votação</title>
 </head>
 <body>
+	<% String validou = (String)request.getSession().getAttribute("validou"); %>
+	<% String nulo = (String)request.getSession().getAttribute("nulo"); %>
+	
 	<button id="sair">Sair</button>
 	<button id="voltar" onclick="window.location.href='javascript:window.history.go(-1)'">Voltar</button>
 	
@@ -26,13 +29,17 @@
 				<input type="text" name="titulo" required="true" maxlength="12">
 			</label>
 			
+			
+			
 			<button id="validar"> Validar </button>
-			<% if(e.isLibera()){ %>
-				<p> <%= e.getNome() + " de título " + e.getTitulo() + " está liberado para votar" %></p>
-			<% } else{ %>
-				<p> Este eleitor não foi encontrado </p>
-			<% } %>
 		</form>
+		
+		<% if(nulo != null){ %>
+			<p> Este eleitor não foi encontrado </p>
+		<% }else if(validou != null){ %>
+			<p> <%= e.getNome() + " de título " + e.getTitulo() + " está liberado para votar" %></p>
+		<% } %>
+		
 	</div>
 </body>
 </html>
