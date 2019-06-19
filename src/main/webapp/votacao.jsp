@@ -11,13 +11,18 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Sistema de Votação</title>
+<title>Votação</title>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<script src="./js/jquery-3.4.1.min.js"></script>
+<script src="./js/script.js"></script>
 </head>
 <body>
-	<button id="voltar" onclick="window.location.href='javascript:window.history.go(-1)'">Voltar</button>
+	<% String verify = (String)request.getSession().getAttribute("verify"); %>
+	
+	
 	<% Eleitor e = (Eleitor)request.getSession().getAttribute("eleitorLogado"); %>
 	<form action="Votar" method="post">
-		<% if(e.isLibera()){ %>
+		<% if(e.isLibera() && !e.isVotou()){ %>
 			<div>
 				<h1> Votação </h1>
 			</div>
@@ -31,6 +36,10 @@
 			<p> Você não pode votar agora </p>
 		<% } %>
 	</form>
-	<img alt="Aqui vai ficar a foto do miliante" src="">
+	<% if(verify != null){ %>
+		<p> Número inválido, tente novamente </p>
+	<% } %>
+	<button id="sair"> Sair </button>
+	<button id="voltar" onclick="window.location.href='javascript:window.history.go(-1)'">Voltar</button>
 </body>
 </html>

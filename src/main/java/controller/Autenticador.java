@@ -38,7 +38,7 @@ public class Autenticador extends HttpServlet {
 		}
 		else {
 			try {
-				req.setAttribute("Falha na autenticação", true);
+				//req.setAttribute("Falha na autenticação", true);
 				
 				mensagem = "Usuário Inválido";
 				req.getSession().setAttribute("mensagem", mensagem);

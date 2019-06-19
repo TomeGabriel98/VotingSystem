@@ -9,11 +9,14 @@ import javax.servlet.http.HttpServletResponse;
 import model.Candidato;
 import model.CandidatoDAOImpl;
 import model.Eleitor;
+import model.EleitorDAOImpl;
+import model.VotoDAOImpl;
 
 @WebServlet(name = "Votar", urlPatterns = {"/Votar"})
 public class Votar extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse res) {
+		String verify = null;
 		try {
 			req.setCharacterEncoding("UTF-8");
 		} catch(Exception e) {
@@ -23,10 +26,7 @@ public class Votar extends HttpServlet {
 		ServletContext sc = req.getServletContext();
 		
 		try {
-			Eleitor eleitor = (Eleitor)req.getSession().getAttribute("eleitorLogado");
-			if(eleitor.isLibera()) {
-				sc.getRequestDispatcher("/votacao.jsp").forward(req, res);
-			}
+			sc.getRequestDispatcher("/votacao.jsp").forward(req, res);
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -34,6 +34,8 @@ public class Votar extends HttpServlet {
 
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse res) {
+		String verify = null;
+		
 		try {
 			req.setCharacterEncoding("UTF-8");
 		} catch(Exception e) {
@@ -44,6 +46,7 @@ public class Votar extends HttpServlet {
 		CandidatoDAOImpl candidato = new CandidatoDAOImpl();
 		int numero = Integer.parseInt(req.getParameter("candidato"));
 		Candidato uBD = candidato.findCandidato(numero);
+		VotoDAOImpl voto = new VotoDAOImpl();
 		
 		req.getSession().setAttribute("candidato", uBD);
 		
@@ -51,12 +54,22 @@ public class Votar extends HttpServlet {
 		
 		if(uBD != null)
 			try {
+				voto.vota(numero);
+				
+				EleitorDAOImpl eleitor = new EleitorDAOImpl();
+				Eleitor e = (Eleitor)req.getSession().getAttribute("eleitorLogado");
+				String titulo = e.getTitulo();
+				
+				eleitor.bloqueiaVoto(titulo);
+				
 				sc.getRequestDispatcher("/concluido.jsp").forward(req, res);
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
 		else {
 			try {
+				verify = "true";
+				req.getSession().setAttribute("verify", verify);
 				sc.getRequestDispatcher("/votacao.jsp").forward(req, res);
 			}catch(Exception e) {}
 		}

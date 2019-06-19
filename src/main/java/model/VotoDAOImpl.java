@@ -3,7 +3,9 @@ package model;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+
 
 public class VotoDAOImpl implements VotoDAO {
 	
@@ -30,6 +32,20 @@ public class VotoDAOImpl implements VotoDAO {
 			return 0;
 		}
 		
+	}
+
+	@Override
+	public int vota(int voto) {
+		conector = ServicoDatabaseConnection.getConnection();
+		
+		Query query = conector.createNativeQuery("INSERT into voto VALUES (null, :voto)", Voto.class);
+		query.setParameter("voto", voto);
+		
+		conector.getTransaction().begin();
+		query.executeUpdate();
+		conector.getTransaction().commit();
+		
+		return voto;
 	}
 
 }

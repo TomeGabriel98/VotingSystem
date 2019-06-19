@@ -37,4 +37,7 @@
 	<%} %>
 	
 </body>
+<footer>
+	<img alt="Logo" src="./img/logo.png">
+</footer>
 </html>

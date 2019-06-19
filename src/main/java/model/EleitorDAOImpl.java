@@ -43,4 +43,25 @@ public class EleitorDAOImpl implements EleitorDAO {
 		}
 	}
 
+	@Override
+	public boolean bloqueiaVoto(String titulo) {
+		conector = ServicoDatabaseConnection.getConnection();
+		
+		try {
+			Query query = conector.createNativeQuery("UPDATE eleitor e SET e.votou = true "
+					+ "WHERE e.titulo = :titulo", Eleitor.class);
+			query.setParameter("titulo", titulo);
+			
+			conector.getTransaction().begin();
+			query.executeUpdate();
+			conector.getTransaction().commit();
+			
+			return true;
+		} catch(Exception e) {
+			e.printStackTrace();
+			
+			return false;
+		}
+	}
+
 }

@@ -7,11 +7,13 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Sistema de Votação</title>
+<title>Relatório</title>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<script src="./js/jquery-3.4.1.min.js"></script>
+<script src="./js/script.js"></script>
 </head>
 <body>
-	<button name="sair"> Sair </button>
-	<button id="voltar" onclick="window.location.href='javascript:window.history.go(-1)'">Voltar</button>
+	
 	<h1>Relatório</h1>
 	
 	<% Map<String,Integer> relatorio = (HashMap)request.getSession().getAttribute("candidatos"); 
@@ -31,7 +33,7 @@
 	
 	
 	<br>
-	<button id="imprimir">Imprimir</button>
+	<button id="sair"> Sair </button>
 	<button id="voltar" onclick="window.location.href='javascript:window.history.go(-1)'">Voltar</button>
 </body>
 </html>

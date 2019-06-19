@@ -6,7 +6,7 @@
 	<!-- O nome da unidade de persistência é referenciado na criação da fábrica 
 		de gerenciadores de entidade. -->
 	<persistence-unit name="eleicao">
-		<description> Crud do Site de Votacao</description>
+		<description> Voting System Persistence</description>
 		<!-- Provedor da implementação das especificações de interface do JPA -->
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<class>model.Eleitor</class>
@@ -18,8 +18,7 @@
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/eleicao?serverTimezone=UTC" />
 			<property name="javax.persistence.jdbc.user" value="root" />
-			<property name="javax.persistence.jdbc.password" value="021426" /><!-- 
-				SenhaForte.123 -->
+			<property name="javax.persistence.jdbc.password" value="021426" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />

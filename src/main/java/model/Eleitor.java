@@ -39,6 +39,9 @@ public class Eleitor {
 	
 	@Column(name = "libera")
 	private boolean libera;
+	
+	@Column(name="votou")
+	private boolean votou;
 
 	public Eleitor() {}
 
@@ -120,6 +123,14 @@ public class Eleitor {
 
 	public void setLibera(boolean libera) {
 		this.libera = libera;
+	}
+
+	public boolean isVotou() {
+		return votou;
+	}
+
+	public void setVotou(boolean votou) {
+		this.votou = votou;
 	}
 	
 	

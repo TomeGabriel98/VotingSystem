@@ -11,10 +11,13 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Sistema de Votação</title>
+<title>Concluído</title>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<script src="./js/jquery-3.4.1.min.js"></script>
+<script src="./js/script.js"></script>
 </head>
 <body>
 	<h1> Parabéns, seu voto foi computado </h1>
-	<button type="submit"> Sair </button>
+	<button id="sair"> Sair </button>
 </body>
 </html>

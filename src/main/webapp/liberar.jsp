@@ -11,14 +11,14 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Sistema de Votação</title>
+<title>Liberação</title>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<script src="./js/jquery-3.4.1.min.js"></script>
+<script src="./js/script.js"></script>
 </head>
 <body>
 	<% String validou = (String)request.getSession().getAttribute("validou"); %>
-	<% String nulo = (String)request.getSession().getAttribute("nulo"); %>
-	
-	<button id="sair">Sair</button>
-	<button id="voltar" onclick="window.location.href='javascript:window.history.go(-1)'">Voltar</button>
+	<% String nulo = (String)request.getSession().getAttribute("nulo"); %>	
 	
 	<div class="container">
 		<% Eleitor e = (Eleitor)request.getSession().getAttribute("eleitor"); %>
@@ -37,9 +37,12 @@
 		<% if(nulo != null){ %>
 			<p> Este eleitor não foi encontrado </p>
 		<% }else if(validou != null){ %>
-			<p> <%= e.getNome() + " de título " + e.getTitulo() + " está liberado para votar" %></p>
+			<h2 id="validou" style="color:green;"> <%= e.getNome() + " de título " + e.getTitulo() + " está liberado para votar" %></h2>
 		<% } %>
 		
 	</div>
+	
+	<button id="sair">Sair</button>
+	<button id="voltar" onclick="window.location.href='javascript:window.history.go(-1)'">Voltar</button>
 </body>
 </html>

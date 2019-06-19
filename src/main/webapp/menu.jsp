@@ -12,12 +12,14 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Home</title>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<script src="./js/jquery-3.4.1.min.js"></script>
+<script src="./js/script.js"></script>
 </head>
 <body>
-	<button id="sair"> Sair </button>
 	<% Eleitor e = (Eleitor)request.getSession().getAttribute("eleitorLogado"); %>
 	
-	<p> Olá <%= e.getCategoria().toLowerCase() + " " + e.getNome() %></p>
+	<h1 class="page-header"> Olá <%= e.getCategoria().toLowerCase() + " " + e.getNome() %></h1>
 	
 	<nav id="menu">
 			<ul>
@@ -31,6 +33,8 @@
 				<%} %>
 			</ul>
 	</nav>
+	
+	<button id="sair"> Sair </button>
 	
 </body>
 </html>
